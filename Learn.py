@@ -1,14 +1,15 @@
-def log_method_call(func):
+def dec(func):
     def wrapper(self, *args, **kwargs):
-        print(f"Вызов метода {func.__name__}")
+        print(f'Method {func.__name__}')
         return func(self, *args, **kwargs)
 
     return wrapper
 
+
 class MyClass:
-    @log_method_call
+    @dec
     def say_hello(self):
-        print("Hello from MyClass!")
+        print('hi from class')
 
 obj = MyClass()
 obj.say_hello()
